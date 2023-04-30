@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragments_navigation"
+    app:startDestination="@id/miHome">
+
+
+    <fragment
+        android:id="@+id/miHome"
+        android:name="hr.sonsanddaughters.equisite.fragment.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home"/>
+
+    <fragment
+        android:id="@+id/miBalance"
+        android:name="hr.sonsanddaughters.equisite.fragment.BalanceFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_balance"/>
+
+    <fragment
+        android:id="@+id/miInvestments"
+        android:name="hr.sonsanddaughters.equisite.fragment.InvestmentsFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_investments"/>
+
+    <fragment
+        android:id="@+id/miCommunity"
+        android:name="hr.sonsanddaughters.equisite.fragment.CommunityFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_community"/>
+
+    <fragment
+        android:id="@+id/miAnalytics"
+        android:name="hr.sonsanddaughters.equisite.fragment.AnalyticsFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_analytics"/>
+
+</navigation>

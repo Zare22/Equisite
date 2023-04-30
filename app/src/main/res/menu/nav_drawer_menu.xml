@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/miHome"
+        android:title="@string/home"
+        />
+
+    <item
+        android:id="@+id/miBalance"
+        android:title="Balance" />
+    <item
+        android:id="@+id/miInvestments"
+        android:title="Investments" />
+    <item
+        android:id="@+id/miAnalytics"
+        android:title="Analytics" />
+    <item
+        android:id="@+id/miCommunity"
+        android:title="Community" />
+
+    <item
+        android:id="@+id/miLogout"
+        android:title="Logout" />
+
+</menu>

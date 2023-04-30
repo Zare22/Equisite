@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/equisite_primary"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".fragment.RegisterFragment">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:src="@mipmap/ic_launcher" />
+
+    <EditText
+        android:id="@+id/editTextFirstName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:backgroundTint="@color/cardview_background"
+        android:hint="First name"
+        android:inputType="text"
+        android:padding="16dp"
+        android:textColor="@color/cardview_background"
+        android:textColorHint="@color/cardview_background"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/editTextLastName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:backgroundTint="@color/cardview_background"
+        android:hint="Last name"
+        android:inputType="text"
+        android:padding="16dp"
+        android:textColor="@color/cardview_background"
+        android:textColorHint="@color/cardview_background"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/editTextEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:backgroundTint="@color/cardview_background"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:padding="16dp"
+        android:textColor="@color/cardview_background"
+        android:textColorHint="@color/cardview_background"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/editTextUsername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:backgroundTint="@color/cardview_background"
+        android:hint="Username"
+        android:inputType="text"
+        android:padding="16dp"
+        android:textColor="@color/cardview_background"
+        android:textColorHint="@color/cardview_background"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/editTextPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:backgroundTint="@color/cardview_background"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:padding="16dp"
+        android:textColor="@color/cardview_background"
+        android:textColorHint="@color/cardview_background"
+        android:textSize="16sp" />
+
+<!--    <EditText-->
+<!--        android:id="@+id/editTextConfirmPassword"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginHorizontal="16dp"-->
+<!--        android:backgroundTint="@color/cardview_background"-->
+<!--        android:hint="Confirm your password"-->
+<!--        android:inputType="textPassword"-->
+<!--        android:padding="16dp"-->
+<!--        android:textColor="@color/cardview_background"-->
+<!--        android:textColorHint="@color/cardview_background"-->
+<!--        android:textSize="16sp" />-->
+
+    <Button
+        android:id="@+id/btnCreateAccount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:backgroundTint="@color/white"
+        android:text="Fly with us"
+        android:textColor="@color/motto_color" />
+
+</LinearLayout>

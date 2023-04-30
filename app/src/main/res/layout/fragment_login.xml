@@ -1,0 +1,60 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.LoginFragment"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@color/equisite_primary">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ic_launcher"
+        android:layout_marginBottom="20dp" />
+
+    <EditText
+        android:id="@+id/editTextEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:layout_marginHorizontal="16dp"
+        android:padding="16dp"
+        android:textSize="16sp"
+        android:textColor="@color/cardview_background"
+        android:textColorHint="@color/cardview_background"
+        android:backgroundTint="@color/cardview_background"/>
+
+    <EditText
+        android:id="@+id/editTextPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:layout_marginHorizontal="16dp"
+        android:padding="16dp"
+        android:textSize="16sp"
+        android:textColor="@color/cardview_background"
+        android:textColorHint="@color/cardview_background"
+        android:backgroundTint="@color/cardview_background" />
+
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:textColor="@color/motto_color"
+        android:backgroundTint="@color/white"
+        android:text="Login"/>
+
+    <Button
+        android:id="@+id/btnCreateAccount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:textColor="@color/motto_color"
+        android:backgroundTint="@color/white"
+        android:text="Create Account" />
+
+</LinearLayout>

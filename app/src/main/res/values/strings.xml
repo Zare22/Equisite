@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">Equisite</string>
+    <string name="your_money_works_for_you">Your money works for you</string>
+    <string name="logo_content_description">Equisite logo</string>
+    <string name="sons_amp_daughters"><![CDATA[Sons & Daughters]]></string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+    <string name="home">Home</string>
+
+
+    <string-array name="incomes">
+        <item>Pay</item>
+        <item>Selling goods</item>
+        <item>Selling service</item>
+        <item>Fee/Royalties</item>
+        <item>Tax return</item>
+        <item>Dividend</item>
+        <item>Other</item>
+    </string-array>
+    <string-array name="expenses">
+        <item>Electricity bill</item>
+        <item>Water bill</item>
+        <item>Car fuel</item>
+        <item>Gas bill</item>
+        <item>Internet bill</item>
+        <item>Phone bill</item>
+        <item>Maintenance fee</item>
+        <item>Waste disposal</item>
+        <item>Insurance</item>
+        <item>Other</item>
+    </string-array>
+</resources>

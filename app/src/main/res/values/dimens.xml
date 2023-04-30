@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="splashImageViewHeight">300dp</dimen>
+    <dimen name="splashLogoPadding">25dp</dimen>
+    <dimen name="splashMottoPadding">10dp</dimen>
+    <dimen name="splashMottoHeight">60dp</dimen>
+    <dimen name="splashLineHeight">1.5dp</dimen>
+    <dimen name="splashLineWidth">200dp</dimen>
+    <dimen name="splashLineMarginTop">15dp</dimen>
+    <dimen name="splashCompanyMarginTop">1dp</dimen>
+    <dimen name="splashCompanyTextSize">25sp</dimen>
+</resources>

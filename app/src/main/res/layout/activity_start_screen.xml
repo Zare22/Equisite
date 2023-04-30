@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".StartScreenActivity"
+    android:id="@+id/myLinearLayout">
+    
+    <ImageView
+        android:id="@+id/ivEquisiteLogo"
+        android:src="@drawable/equisitelogo"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/splashImageViewHeight"
+        android:padding="@dimen/splashLogoPadding"
+        android:contentDescription="@string/logo_content_description"
+        />
+
+    <TextView
+        android:id="@+id/tvMotto"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/splashMottoHeight"
+        android:maxLines="1"
+        android:text="@string/your_money_works_for_you"
+        android:textColor="@color/motto_color"
+        android:autoSizeTextType="uniform"
+        android:padding="@dimen/splashMottoPadding"
+        android:fontFamily="@font/twcenmtstd"
+        />
+
+    <View
+        android:id="@+id/viewHorizontalLineCompany"
+        android:layout_width="@dimen/splashLineWidth"
+        android:layout_height="@dimen/splashLineHeight"
+        android:background="@color/motto_color"
+        android:layout_marginTop="@dimen/splashLineMarginTop"
+        />
+
+    <TextView
+        android:id="@+id/tvCompanyName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/sons_amp_daughters"
+        android:textColor="@color/white"
+        android:layout_marginTop="@dimen/splashCompanyMarginTop"
+        android:fontFamily="@font/segoeui"
+        android:textSize="@dimen/splashCompanyTextSize"
+        />
+
+
+</LinearLayout>
