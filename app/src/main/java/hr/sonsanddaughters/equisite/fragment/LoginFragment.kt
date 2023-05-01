@@ -14,6 +14,7 @@ import androidx.navigation.Navigation
 import hr.sonsanddaughters.equisite.HostActivity
 import hr.sonsanddaughters.equisite.R
 import hr.sonsanddaughters.equisite.databinding.FragmentLoginBinding
+import hr.sonsanddaughters.equisite.framework.showToast
 import hr.sonsanddaughters.equisite.util.FirebaseUtil
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -56,10 +57,7 @@ class LoginFragment : Fragment() {
                         checkLoggedInState()
                     }
                 } catch (e: Exception) {
-                    activity?.runOnUiThread {
-                        Toast.makeText(activity, e.message, Toast.LENGTH_LONG).show()
-                    }
-
+                    activity?.showToast(e.message.toString())
                 }
             }
         }

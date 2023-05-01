@@ -9,6 +9,8 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import hr.sonsanddaughters.equisite.R
 import hr.sonsanddaughters.equisite.databinding.FragmentManualBinding
+import hr.sonsanddaughters.equisite.framework.replaceFragment
+import hr.sonsanddaughters.equisite.framework.showToast
 import hr.sonsanddaughters.equisite.model.transaction.Expense
 import hr.sonsanddaughters.equisite.model.transaction.Income
 import hr.sonsanddaughters.equisite.util.FirebaseUtil
@@ -45,9 +47,7 @@ class ManualFragment : Fragment() {
             }
         }
         binding.btnCancel.setOnClickListener {
-            activity?.supportFragmentManager?.beginTransaction()
-                ?.replace(R.id.fragmentsNavController, BalanceFragment())
-                ?.commit()
+            activity?.replaceFragment(R.id.balanceContainer, Fragment())
         }
         binding.btnSubmit.setOnClickListener {
             addTransactionToUser()
@@ -89,19 +89,10 @@ class ManualFragment : Fragment() {
 
                 FirebaseUtil.db.collection("incomes").add(income).addOnCompleteListener {
                     if (!it.isSuccessful) {
-                        activity?.runOnUiThread {
-                            Toast.makeText(activity, it.exception?.message, Toast.LENGTH_LONG)
-                                .show()
-                        }
+                        activity?.showToast(it.exception?.message.toString())
                     } else {
-                        Toast.makeText(
-                            context,
-                            R.string.your_transaction_successfully_flied_south,
-                            Toast.LENGTH_LONG
-                        ).show()
-                        activity?.supportFragmentManager?.beginTransaction()
-                            ?.replace(R.id.fragmentsNavController, BalanceFragment())
-                            ?.commit()
+                        activity?.showToast(getString(R.string.your_transaction_successfully_flied_south))
+                        activity?.replaceFragment(R.id.balanceContainer, ManualFragment())
                     }
                 }
             } else {
@@ -116,27 +107,15 @@ class ManualFragment : Fragment() {
 
                 FirebaseUtil.db.collection("expenses").add(expense).addOnCompleteListener {
                     if (!it.isSuccessful) {
-                        activity?.runOnUiThread {
-                            Toast.makeText(activity, it.exception?.message, Toast.LENGTH_LONG)
-                                .show()
-                        }
+                        activity?.showToast(it.exception?.message.toString())
                     } else {
-                        Toast.makeText(
-                            context,
-                            R.string.your_transaction_successfully_flied_south,
-                            Toast.LENGTH_LONG
-                        ).show()
-                        activity?.supportFragmentManager?.beginTransaction()
-                            ?.replace(R.id.fragmentsNavController, BalanceFragment())
-                            ?.commit()
+                        activity?.showToast(getString(R.string.your_transaction_successfully_flied_south))
+                        activity?.replaceFragment(R.id.balanceContainer, ManualFragment())
                     }
                 }
             }
         } else {
-            activity?.runOnUiThread {
-                Toast.makeText(activity, R.string.please_fill_out_your_form, Toast.LENGTH_LONG)
-                    .show()
-            }
+            activity?.showToast(getString(R.string.please_fill_out_your_form))
         }
 
 

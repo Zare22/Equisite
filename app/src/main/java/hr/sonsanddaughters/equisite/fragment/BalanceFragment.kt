@@ -9,6 +9,8 @@ import androidx.fragment.app.Fragment
 import com.google.android.gms.tasks.Tasks
 import hr.sonsanddaughters.equisite.R
 import hr.sonsanddaughters.equisite.databinding.FragmentBalanceBinding
+import hr.sonsanddaughters.equisite.framework.replaceFragment
+import hr.sonsanddaughters.equisite.framework.showToast
 import hr.sonsanddaughters.equisite.util.FirebaseUtil
 
 class BalanceFragment : Fragment() {
@@ -27,36 +29,16 @@ class BalanceFragment : Fragment() {
 
     private fun setIconClickListeners() {
         binding.btnConnectWithBankAccount.setOnClickListener {
-            activity?.runOnUiThread {
-                Toast.makeText(
-                    activity,
-                    R.string.equisite_pigeons_are_working,
-                    Toast.LENGTH_LONG
-                ).show()
-            }
+            activity?.showToast(getString(R.string.equisite_pigeons_are_working))
         }
         binding.btnScan.setOnClickListener {
-            activity?.runOnUiThread {
-                Toast.makeText(
-                    activity,
-                    R.string.equisite_pigeons_are_working,
-                    Toast.LENGTH_LONG
-                ).show()
-            }
+            activity?.showToast(getString(R.string.equisite_pigeons_are_working))
         }
         binding.btnUpload.setOnClickListener {
-            activity?.runOnUiThread {
-                Toast.makeText(
-                    activity,
-                    R.string.equisite_pigeons_are_working,
-                    Toast.LENGTH_LONG
-                ).show()
-            }
+            activity?.showToast(getString(R.string.equisite_pigeons_are_working))
         }
         binding.btnManual.setOnClickListener {
-            activity?.supportFragmentManager?.beginTransaction()
-                ?.replace(R.id.balanceContainer, ManualFragment())
-                ?.commit()
+            activity?.replaceFragment(R.id.balanceContainer, ManualFragment())
         }
 
     }
@@ -74,9 +56,7 @@ class BalanceFragment : Fragment() {
                 }
             }
             .addOnFailureListener { exception ->
-                activity?.runOnUiThread {
-                    Toast.makeText(activity, exception.message, Toast.LENGTH_LONG).show()
-                }
+                activity?.showToast(exception.message.toString())
             }
 
 
@@ -89,9 +69,7 @@ class BalanceFragment : Fragment() {
                 }
             }
             .addOnFailureListener { exception ->
-                activity?.runOnUiThread {
-                    Toast.makeText(activity, exception.message, Toast.LENGTH_LONG).show()
-                }
+                activity?.showToast(exception.message.toString())
             }
 
 
