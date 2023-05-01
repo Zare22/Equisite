@@ -7,7 +7,6 @@ import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Looper
 import androidx.core.content.getSystemService
-import androidx.navigation.NavController
 import androidx.preference.PreferenceManager
 
 inline fun <reified T : Activity> Context.startActivity() =
@@ -35,8 +34,4 @@ fun callDelayed(delay: Long, runnable: Runnable) {
         runnable,
         delay
     )
-}
-
-fun NavController.fragmentChange(resId: Int) {
-    this.navigate(resId)
 }

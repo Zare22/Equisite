@@ -12,7 +12,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
-        android:src="@mipmap/ic_launcher" />
+        android:src="@mipmap/ic_launcher"
+        android:contentDescription="@string/equisite_logo" />
 
     <EditText
         android:id="@+id/editTextFirstName"
@@ -20,12 +21,13 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
         android:backgroundTint="@color/cardview_background"
-        android:hint="First name"
+        android:hint="@string/first_name"
         android:inputType="text"
         android:padding="16dp"
         android:textColor="@color/cardview_background"
         android:textColorHint="@color/cardview_background"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        android:autofillHints="name" />
 
     <EditText
         android:id="@+id/editTextLastName"
@@ -33,12 +35,13 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
         android:backgroundTint="@color/cardview_background"
-        android:hint="Last name"
+        android:hint="@string/last_name"
         android:inputType="text"
         android:padding="16dp"
         android:textColor="@color/cardview_background"
         android:textColorHint="@color/cardview_background"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        android:autofillHints="name" />
 
     <EditText
         android:id="@+id/editTextEmail"
@@ -46,12 +49,13 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
         android:backgroundTint="@color/cardview_background"
-        android:hint="Email"
+        android:hint="@string/email"
         android:inputType="textEmailAddress"
         android:padding="16dp"
         android:textColor="@color/cardview_background"
         android:textColorHint="@color/cardview_background"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        android:autofillHints="emailAddress" />
 
     <EditText
         android:id="@+id/editTextUsername"
@@ -59,12 +63,13 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
         android:backgroundTint="@color/cardview_background"
-        android:hint="Username"
+        android:hint="@string/username"
         android:inputType="text"
         android:padding="16dp"
         android:textColor="@color/cardview_background"
         android:textColorHint="@color/cardview_background"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        android:autofillHints="username" />
 
     <EditText
         android:id="@+id/editTextPassword"
@@ -72,25 +77,13 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
         android:backgroundTint="@color/cardview_background"
-        android:hint="Password"
+        android:hint="@string/password"
         android:inputType="textPassword"
         android:padding="16dp"
         android:textColor="@color/cardview_background"
         android:textColorHint="@color/cardview_background"
-        android:textSize="16sp" />
-
-<!--    <EditText-->
-<!--        android:id="@+id/editTextConfirmPassword"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginHorizontal="16dp"-->
-<!--        android:backgroundTint="@color/cardview_background"-->
-<!--        android:hint="Confirm your password"-->
-<!--        android:inputType="textPassword"-->
-<!--        android:padding="16dp"-->
-<!--        android:textColor="@color/cardview_background"-->
-<!--        android:textColorHint="@color/cardview_background"-->
-<!--        android:textSize="16sp" />-->
+        android:textSize="16sp"
+        android:autofillHints="password" />
 
     <Button
         android:id="@+id/btnCreateAccount"
@@ -98,7 +91,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:backgroundTint="@color/white"
-        android:text="Fly with us"
+        android:text="@string/fly_with_us"
         android:textColor="@color/motto_color" />
 
 </LinearLayout>

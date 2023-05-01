@@ -9,43 +9,43 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="hr.sonsanddaughters.equisite.fragment.HomeFragment"
-        android:label="Home"
+        android:label="@string/home"
         tools:layout="@layout/fragment_home"/>
 
     <fragment
         android:id="@+id/balanceFragment"
         android:name="hr.sonsanddaughters.equisite.fragment.BalanceFragment"
-        android:label="Balance"
+        android:label="@string/balance"
         tools:layout="@layout/fragment_balance"/>
 
     <fragment
         android:id="@+id/investmentsFragment"
         android:name="hr.sonsanddaughters.equisite.fragment.InvestmentsFragment"
-        android:label="Investments"
+        android:label="@string/investments"
         tools:layout="@layout/fragment_investments"/>
 
     <fragment
         android:id="@+id/communityFragment"
         android:name="hr.sonsanddaughters.equisite.fragment.CommunityFragment"
-        android:label="Community"
+        android:label="@string/community"
         tools:layout="@layout/fragment_community"/>
 
     <fragment
         android:id="@+id/analyticsFragment"
         android:name="hr.sonsanddaughters.equisite.fragment.AnalyticsFragment"
-        android:label="Analytics"
+        android:label="@string/analytics"
         tools:layout="@layout/fragment_analytics"/>
 
     <fragment
         android:id="@+id/loginFragment"
         android:name="hr.sonsanddaughters.equisite.fragment.LoginFragment"
-        android:label="Logout"
+        android:label="@string/login"
         tools:layout="@layout/fragment_login"/>
 
     <fragment
         android:id="@+id/registerFragment"
         android:name="hr.sonsanddaughters.equisite.fragment.RegisterFragment"
-        android:label="Register"
+        android:label="@string/register"
         tools:layout="@layout/fragment_register"/>
 
 </navigation>

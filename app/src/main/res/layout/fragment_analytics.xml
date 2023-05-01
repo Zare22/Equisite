@@ -11,7 +11,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Our robots are getting constructed!"
+        android:text="@string/our_robots_are_getting_constructed"
         android:textAlignment="center"
         android:padding="10dp"
         android:textSize="25sp"

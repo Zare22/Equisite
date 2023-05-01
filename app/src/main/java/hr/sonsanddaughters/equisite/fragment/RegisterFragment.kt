@@ -19,11 +19,6 @@ import kotlinx.coroutines.*
 import kotlinx.coroutines.tasks.await
 import java.lang.Exception
 
-/**
- * A simple [Fragment] subclass.
- * Use the [RegisterFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class RegisterFragment : Fragment() {
 
     private lateinit var binding: FragmentRegisterBinding
@@ -71,7 +66,7 @@ class RegisterFragment : Fragment() {
     private fun checkLoggedInState() {
         if (FirebaseUtil.auth.currentUser == null) {
             activity?.runOnUiThread {
-                Toast.makeText(activity, "Oops something went wrong", Toast.LENGTH_LONG).show()
+                Toast.makeText(activity, R.string.oops_something_went_wrong, Toast.LENGTH_LONG).show()
             }
         } else {
             val inputMethodManager =

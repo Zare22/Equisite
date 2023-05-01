@@ -15,7 +15,7 @@
 
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_margin="10dp"
             app:cardBackgroundColor="@color/dirty_white"
             app:cardCornerRadius="15dp"
@@ -36,7 +36,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="16dp"
                     android:backgroundTint="@color/dark_grey"
-                    android:hint="Give this transaction a cool name"
+                    android:hint="@string/give_this_transaction_a_cool_name"
                     android:inputType="text"
                     android:padding="10dp"
                     android:textAlignment="center"
@@ -58,14 +58,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="5dp"
-                        android:text="Income" />
+                        android:text="@string/income" />
 
                     <RadioButton
                         android:id="@+id/rbExpense"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="5dp"
-                        android:text="Expense" />
+                        android:text="@string/expense" />
                 </RadioGroup>
 
                 <LinearLayout
@@ -78,7 +78,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="5dp"
-                        android:text="Enter the amount:"
+                        android:text="@string/enter_the_amount"
                         android:textColor="@color/dark_grey" />
 
                     <EditText
@@ -109,7 +109,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="5dp"
-                        android:text="Set the date:"
+                        android:text="@string/set_the_date"
                         android:textColor="@color/dark_grey" />
 
                     <DatePicker
@@ -133,7 +133,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
                         android:background="@drawable/edittext_box"
-                        android:hint="Description of your transaction"
+                        android:hint="@string/description_of_your_transaction"
                         android:inputType="textMultiLine"
                         android:lines="4"
                         android:maxLines="4"
@@ -153,7 +153,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="20dp"
-                        android:text="Cancel"
+                        android:text="@string/cancel"
                         android:textColor="@color/red" />
 
                     <Button
@@ -161,7 +161,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
-                        android:text="Submit" />
+                        android:text="@string/submit" />
                 </LinearLayout>
 
             </LinearLayout>

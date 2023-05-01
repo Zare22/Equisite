@@ -2,24 +2,20 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/homeFragment"
-        android:title="@string/home"
-        />
-
+        android:title="@string/home"/>
     <item
         android:id="@+id/balanceFragment"
-        android:title="Balance" />
+        android:title="@string/balance" />
     <item
         android:id="@+id/investmentsFragment"
-        android:title="Investments" />
+        android:title="@string/investments" />
     <item
         android:id="@+id/analyticsFragment"
-        android:title="Analytics" />
+        android:title="@string/analytics" />
     <item
         android:id="@+id/communityFragment"
-        android:title="Community" />
-
+        android:title="@string/community" />
     <item
         android:id="@+id/miLogout"
-        android:title="Logout" />
-
+        android:title="@string/logout" />
 </menu>

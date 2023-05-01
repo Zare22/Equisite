@@ -57,7 +57,7 @@ class StartScreenActivity : AppCompatActivity() {
             callDelayed(Constants.DELAY_SPLASH) { startActivity<HostActivity>() }
         }
         else {
-            Toast.makeText(this, "No internet connection", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, R.string.no_internet_connection, Toast.LENGTH_LONG).show()
             callDelayed(Constants.DELAY_SPLASH) { finish() }
         }
 

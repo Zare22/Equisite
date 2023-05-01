@@ -6,14 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Toast
-import androidx.core.view.isNotEmpty
 import androidx.fragment.app.Fragment
 import hr.sonsanddaughters.equisite.R
 import hr.sonsanddaughters.equisite.databinding.FragmentManualBinding
 import hr.sonsanddaughters.equisite.model.transaction.Expense
 import hr.sonsanddaughters.equisite.model.transaction.Income
 import hr.sonsanddaughters.equisite.util.FirebaseUtil
-import java.util.*
+import java.util.Calendar
 
 
 class ManualFragment : Fragment() {
@@ -53,6 +52,7 @@ class ManualFragment : Fragment() {
         binding.btnSubmit.setOnClickListener {
             addTransactionToUser()
         }
+
         return binding.root
     }
 
@@ -96,7 +96,7 @@ class ManualFragment : Fragment() {
                     } else {
                         Toast.makeText(
                             context,
-                            "Your transaction successfully flied south",
+                            R.string.your_transaction_successfully_flied_south,
                             Toast.LENGTH_LONG
                         ).show()
                         activity?.supportFragmentManager?.beginTransaction()
@@ -123,7 +123,7 @@ class ManualFragment : Fragment() {
                     } else {
                         Toast.makeText(
                             context,
-                            "Your transaction successfully flied south",
+                            R.string.your_transaction_successfully_flied_south,
                             Toast.LENGTH_LONG
                         ).show()
                         activity?.supportFragmentManager?.beginTransaction()
@@ -134,7 +134,7 @@ class ManualFragment : Fragment() {
             }
         } else {
             activity?.runOnUiThread {
-                Toast.makeText(activity, "Please fill out your form", Toast.LENGTH_LONG)
+                Toast.makeText(activity, R.string.please_fill_out_your_form, Toast.LENGTH_LONG)
                     .show()
             }
         }

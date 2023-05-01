@@ -22,11 +22,7 @@ import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
 import java.lang.Exception
 
-/**
- * A simple [Fragment] subclass.
- * Use the [LoginFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
+
 class LoginFragment : Fragment() {
     private lateinit var binding: FragmentLoginBinding
 

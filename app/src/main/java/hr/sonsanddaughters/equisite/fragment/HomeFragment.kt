@@ -5,14 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import hr.sonsanddaughters.equisite.R
 import hr.sonsanddaughters.equisite.databinding.FragmentHomeBinding
 
-/**
- * A simple [Fragment] subclass.
- * Use the [HomeFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class HomeFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
@@ -27,26 +23,18 @@ class HomeFragment : Fragment() {
     }
 
     private fun setIconClickListeners() {
-//        binding.btnBalance.setOnClickListener {
-//            activity?.supportFragmentManager?.beginTransaction()
-//                ?.replace(R.id.container, BalanceFragment())
-//                ?.commit()
-//        }
-//        binding.btnAnalytics.setOnClickListener {
-//            activity?.supportFragmentManager?.beginTransaction()
-//                ?.replace(R.id.container, AnalyticsFragment())
-//                ?.commit()
-//        }
-//        binding.btnCommunity.setOnClickListener {
-//            activity?.supportFragmentManager?.beginTransaction()
-//                ?.replace(R.id.container, CommunityFragment())
-//                ?.commit()
-//        }
-//        binding.btnInvestments.setOnClickListener {
-//            activity?.supportFragmentManager?.beginTransaction()
-//                ?.replace(R.id.container, InvestmentsFragment())
-//                ?.commit()
-//        }
+        binding.btnBalance.setOnClickListener {
+            Navigation.findNavController(requireView()).navigate(R.id.balanceFragment)
+        }
+        binding.btnAnalytics.setOnClickListener {
+            Navigation.findNavController(requireView()).navigate(R.id.analyticsFragment)
+        }
+        binding.btnCommunity.setOnClickListener {
+            Navigation.findNavController(requireView()).navigate(R.id.communityFragment)
+        }
+        binding.btnInvestments.setOnClickListener {
+            Navigation.findNavController(requireView()).navigate(R.id.investmentsFragment)
+        }
 
     }
 

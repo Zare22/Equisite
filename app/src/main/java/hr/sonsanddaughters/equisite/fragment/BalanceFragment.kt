@@ -1,22 +1,15 @@
 package hr.sonsanddaughters.equisite.fragment
 
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import com.google.android.gms.tasks.Tasks
 import hr.sonsanddaughters.equisite.R
 import hr.sonsanddaughters.equisite.databinding.FragmentBalanceBinding
 import hr.sonsanddaughters.equisite.util.FirebaseUtil
-
-/**
- * A simple [Fragment] subclass.
- * Use the [BalanceFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 
 class BalanceFragment : Fragment() {
 
@@ -37,7 +30,7 @@ class BalanceFragment : Fragment() {
             activity?.runOnUiThread {
                 Toast.makeText(
                     activity,
-                    "Pigeons are working overtime to deliver the feature",
+                    R.string.equisite_pigeons_are_working,
                     Toast.LENGTH_LONG
                 ).show()
             }
@@ -46,7 +39,7 @@ class BalanceFragment : Fragment() {
             activity?.runOnUiThread {
                 Toast.makeText(
                     activity,
-                    "Pigeons are working overtime to deliver the feature",
+                    R.string.equisite_pigeons_are_working,
                     Toast.LENGTH_LONG
                 ).show()
             }
@@ -55,7 +48,7 @@ class BalanceFragment : Fragment() {
             activity?.runOnUiThread {
                 Toast.makeText(
                     activity,
-                    "Pigeons are working overtime to deliver the feature",
+                    R.string.equisite_pigeons_are_working,
                     Toast.LENGTH_LONG
                 ).show()
             }
@@ -103,7 +96,7 @@ class BalanceFragment : Fragment() {
 
 
         Tasks.whenAll(incomesTask, expensesTask).addOnCompleteListener {
-            binding.textViewYourBalance.text = "Your current balance is: ${sum.toString()}"
+            binding.textViewYourBalance.text = getString(R.string.balance_state, sum.toString())
         }
 
     }

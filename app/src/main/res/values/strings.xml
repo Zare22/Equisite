@@ -13,7 +13,53 @@
 
     <string name="welcome_message">Welcome %s</string>
     <string name="not_logged_in_message">Not logged in</string>
+    <string name="balance">Balance</string>
+    <string name="investments">Investments</string>
+    <string name="analytics">Analytics</string>
+    <string name="community">Community</string>
+    <string name="logout">Logout</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="equisite_pigeons_are_working">Pigeons are working overtime to deliver the feature</string>
 
+    <string name="balance_state">Your current balance is: %s</string>
+    <string name="no_internet_connection">No internet connection</string>
+    <string name="oops_something_went_wrong">Oops something went wrong</string>
+    <string name="your_transaction_successfully_flied_south">Your transaction successfully flied south</string>
+    <string name="please_fill_out_your_form">Please fill out your form</string>
+    <string name="equisite_pigeon_has_been_sent_he_will_return_with_the_message_soon">Equisite pigeon has been sent. He will return with the message soon!</string>
+    <string name="our_robots_are_getting_constructed">Our robots are getting constructed!</string>
+    <string name="connect">Connect</string>
+    <string name="scan">Scan</string>
+    <string name="upload">Upload</string>
+    <string name="manual">Manual</string>
+    <string name="we_are_still_gathering">We are still gathering!</string>
+    <string name="where_do_you_want_to_fly_today">Where do you want to fly today?</string>
+    <string name="equisite_logo">Equisite logo</string>
+    <string name="i_would_like_to_get_the_information_about">I would like to get the information about:</string>
+    <string name="real_estate">Real estate</string>
+    <string name="stocks">Stocks</string>
+    <string name="bonds">Bonds</string>
+    <string name="insurance">Insurance</string>
+    <string name="crypto">Crypto</string>
+    <string name="precious_metals">Precious metals</string>
+    <string name="fonds">Fonds</string>
+    <string name="search_the_internet">Search the internet</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="create_account">Create Account</string>
+    <string name="give_this_transaction_a_cool_name">Give this transaction a cool name</string>
+    <string name="income">Income</string>
+    <string name="expense">Expense</string>
+    <string name="enter_the_amount">Enter the amount:</string>
+    <string name="set_the_date">Set the date:</string>
+    <string name="description_of_your_transaction">Description of your transaction</string>
+    <string name="cancel">Cancel</string>
+    <string name="submit">Submit</string>
+    <string name="first_name">First name</string>
+    <string name="last_name">Last name</string>
+    <string name="username">Username</string>
+    <string name="fly_with_us">Fly with us</string>
 
     <string-array name="incomes">
         <item>Pay</item>

@@ -14,7 +14,7 @@
         android:layout_marginTop="10dp"
         android:fontFamily="@font/segoeui"
         android:padding="8dp"
-        android:text="I would like to get the information about:"
+        android:text="@string/i_would_like_to_get_the_information_about"
         android:textAlignment="center"
         android:textSize="20sp" />
 
@@ -40,49 +40,49 @@
                 style="@style/CustomCheckbox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Real estate" />
+                android:text="@string/real_estate" />
 
             <CheckBox
                 android:id="@+id/cbStocks"
                 style="@style/CustomCheckbox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Stocks" />
+                android:text="@string/stocks" />
 
             <CheckBox
                 android:id="@+id/cbBonds"
                 style="@style/CustomCheckbox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Bonds" />
+                android:text="@string/bonds" />
 
             <CheckBox
                 android:id="@+id/cbInsurance"
                 style="@style/CustomCheckbox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Insurance" />
+                android:text="@string/insurance" />
 
             <CheckBox
                 android:id="@+id/cbCrypto"
                 style="@style/CustomCheckbox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Crypto" />
+                android:text="@string/crypto" />
 
             <CheckBox
                 android:id="@+id/cbMetals"
                 style="@style/CustomCheckbox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Precious metals" />
+                android:text="@string/precious_metals" />
 
             <CheckBox
                 android:id="@+id/cbFonds"
                 style="@style/CustomCheckbox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Bonds" />
+                android:text="@string/fonds" />
 
         </LinearLayout>
 
@@ -94,6 +94,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:text="Search the internet" />
+        android:text="@string/search_the_internet" />
 
 </LinearLayout>

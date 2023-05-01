@@ -10,12 +10,6 @@ import hr.sonsanddaughters.equisite.R
 import hr.sonsanddaughters.equisite.databinding.FragmentInvestmentsBinding
 import hr.sonsanddaughters.equisite.databinding.FragmentLoginBinding
 
-
-/**
- * A simple [Fragment] subclass.
- * Use the [InvestmentsFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class InvestmentsFragment : Fragment() {
     private lateinit var binding: FragmentInvestmentsBinding
 
@@ -32,7 +26,7 @@ class InvestmentsFragment : Fragment() {
 
     private fun showAlert() {
         activity?.runOnUiThread {
-            Toast.makeText(activity, "Equisite pigeon has been sent. He will return with the message soon!", Toast.LENGTH_LONG).show()
+            Toast.makeText(activity, R.string.equisite_pigeon_has_been_sent_he_will_return_with_the_message_soon, Toast.LENGTH_LONG).show()
         }
     }
 }

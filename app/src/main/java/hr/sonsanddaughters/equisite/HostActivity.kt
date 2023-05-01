@@ -1,14 +1,12 @@
 package hr.sonsanddaughters.equisite
 
 import android.os.Bundle
-import android.view.Menu
 import android.view.MenuItem
 import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
-import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import hr.sonsanddaughters.equisite.databinding.ActivityHostBinding
@@ -34,9 +32,7 @@ class HostActivity : AppCompatActivity() {
         initFragmentNavigation()
     }
 
-    private fun initFragmentNavigation() {
-        NavigationUI.setupWithNavController(binding.navView, navController)
-    }
+    private fun initFragmentNavigation() = NavigationUI.setupWithNavController(binding.navView, navController)
 
     private fun setupActionBar() {
         val actionBar = supportActionBar
@@ -95,9 +91,8 @@ class HostActivity : AppCompatActivity() {
         val userHeader = headerView.findViewById<TextView>(R.id.textViewUserHeader)
 
         if (loggedInUser != "") {
-            userHeader.text = "Welcome $loggedInUser"
+            userHeader.text = getString(R.string.welcome_message, loggedInUser)
         } else {
-            userHeader.text = R.string.not_logged_in_message.toString()
             userHeader.setText(R.string.not_logged_in_message)
         }
 

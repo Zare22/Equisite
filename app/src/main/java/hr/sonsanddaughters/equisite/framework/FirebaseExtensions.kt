@@ -1,22 +1,13 @@
 package hr.sonsanddaughters.equisite.framework
 
 import android.content.Context
-import android.util.Log
 import android.widget.Toast
-import com.google.android.gms.tasks.Task
-import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import hr.sonsanddaughters.equisite.model.User
 import hr.sonsanddaughters.equisite.util.FirebaseUtil
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.tasks.await
-import kotlinx.coroutines.withContext
-import kotlin.coroutines.suspendCoroutine
 
 
-suspend fun FirebaseAuth.registerUser(context: Context, user: User, password: String) =
+fun FirebaseAuth.registerUser(context: Context, user: User, password: String) =
     createUserWithEmailAndPassword(user.email, password).addOnCompleteListener {
         if (!it.isSuccessful) {
             Toast.makeText(context, it.exception?.message, Toast.LENGTH_LONG).show()

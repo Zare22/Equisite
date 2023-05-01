@@ -52,7 +52,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="2dp"
-                    android:src="@drawable/banking_logo" />
+                    android:src="@drawable/banking_logo"
+                    android:contentDescription="@string/connect" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -60,7 +61,7 @@
                     android:layout_alignParentBottom="true"
                     android:layout_centerHorizontal="true"
                     android:fontFamily="@font/segoeuib"
-                    android:text="Connect"
+                    android:text="@string/connect"
                     android:textColor="@color/dark_grey" />
             </RelativeLayout>
         </com.google.android.material.card.MaterialCardView>
@@ -88,7 +89,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="2dp"
-                    android:src="@drawable/scan_logo" />
+                    android:src="@drawable/scan_logo"
+                    android:contentDescription="@string/scan" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -96,7 +98,7 @@
                     android:layout_alignParentBottom="true"
                     android:layout_centerHorizontal="true"
                     android:fontFamily="@font/segoeuib"
-                    android:text="Scan"
+                    android:text="@string/scan"
                     android:textColor="@color/dark_grey" />
             </RelativeLayout>
         </com.google.android.material.card.MaterialCardView>
@@ -123,7 +125,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="2dp"
-                    android:src="@drawable/upload_logo" />
+                    android:src="@drawable/upload_logo"
+                    android:contentDescription="@string/upload" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -131,7 +134,7 @@
                     android:layout_alignParentBottom="true"
                     android:layout_centerHorizontal="true"
                     android:fontFamily="@font/segoeuib"
-                    android:text="Upload"
+                    android:text="@string/upload"
                     android:textColor="@color/dark_grey" />
             </RelativeLayout>
         </com.google.android.material.card.MaterialCardView>
@@ -158,7 +161,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="2dp"
-                    android:src="@drawable/manual_logo" />
+                    android:src="@drawable/manual_logo"
+                    android:contentDescription="@string/manual" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -166,7 +170,7 @@
                     android:layout_alignParentBottom="true"
                     android:layout_centerHorizontal="true"
                     android:fontFamily="@font/segoeuib"
-                    android:text="Manual"
+                    android:text="@string/manual"
                     android:textColor="@color/dark_grey" />
 
             </RelativeLayout>
