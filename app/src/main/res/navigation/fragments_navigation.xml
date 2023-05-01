@@ -3,37 +3,49 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/fragments_navigation"
-    app:startDestination="@id/miHome">
+    app:startDestination="@id/homeFragment">
 
 
     <fragment
-        android:id="@+id/miHome"
+        android:id="@+id/homeFragment"
         android:name="hr.sonsanddaughters.equisite.fragment.HomeFragment"
         android:label="Home"
         tools:layout="@layout/fragment_home"/>
 
     <fragment
-        android:id="@+id/miBalance"
+        android:id="@+id/balanceFragment"
         android:name="hr.sonsanddaughters.equisite.fragment.BalanceFragment"
-        android:label="Home"
+        android:label="Balance"
         tools:layout="@layout/fragment_balance"/>
 
     <fragment
-        android:id="@+id/miInvestments"
+        android:id="@+id/investmentsFragment"
         android:name="hr.sonsanddaughters.equisite.fragment.InvestmentsFragment"
-        android:label="Home"
+        android:label="Investments"
         tools:layout="@layout/fragment_investments"/>
 
     <fragment
-        android:id="@+id/miCommunity"
+        android:id="@+id/communityFragment"
         android:name="hr.sonsanddaughters.equisite.fragment.CommunityFragment"
-        android:label="Home"
+        android:label="Community"
         tools:layout="@layout/fragment_community"/>
 
     <fragment
-        android:id="@+id/miAnalytics"
+        android:id="@+id/analyticsFragment"
         android:name="hr.sonsanddaughters.equisite.fragment.AnalyticsFragment"
-        android:label="Home"
+        android:label="Analytics"
         tools:layout="@layout/fragment_analytics"/>
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="hr.sonsanddaughters.equisite.fragment.LoginFragment"
+        android:label="Logout"
+        tools:layout="@layout/fragment_login"/>
+
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="hr.sonsanddaughters.equisite.fragment.RegisterFragment"
+        android:label="Register"
+        tools:layout="@layout/fragment_register"/>
 
 </navigation>

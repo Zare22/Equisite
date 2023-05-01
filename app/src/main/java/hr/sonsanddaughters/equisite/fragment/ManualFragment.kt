@@ -47,7 +47,7 @@ class ManualFragment : Fragment() {
         }
         binding.btnCancel.setOnClickListener {
             activity?.supportFragmentManager?.beginTransaction()
-                ?.replace(R.id.container, BalanceFragment())
+                ?.replace(R.id.fragmentsNavController, BalanceFragment())
                 ?.commit()
         }
         binding.btnSubmit.setOnClickListener {
@@ -100,7 +100,7 @@ class ManualFragment : Fragment() {
                             Toast.LENGTH_LONG
                         ).show()
                         activity?.supportFragmentManager?.beginTransaction()
-                            ?.replace(R.id.container, BalanceFragment())
+                            ?.replace(R.id.fragmentsNavController, BalanceFragment())
                             ?.commit()
                     }
                 }
@@ -127,7 +127,7 @@ class ManualFragment : Fragment() {
                             Toast.LENGTH_LONG
                         ).show()
                         activity?.supportFragmentManager?.beginTransaction()
-                            ?.replace(R.id.container, BalanceFragment())
+                            ?.replace(R.id.fragmentsNavController, BalanceFragment())
                             ?.commit()
                     }
                 }

@@ -90,7 +90,7 @@ class RegisterFragment : Fragment() {
 
             (activity as AppCompatActivity).supportActionBar?.show()
             activity?.supportFragmentManager?.beginTransaction()
-                ?.replace(R.id.container, HomeFragment())
+                ?.replace(R.id.fragmentsNavController, HomeFragment())
                 ?.commit()
         }
     }

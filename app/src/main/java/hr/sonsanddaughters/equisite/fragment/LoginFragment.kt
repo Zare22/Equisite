@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.Navigation
 import hr.sonsanddaughters.equisite.HostActivity
 import hr.sonsanddaughters.equisite.R
 import hr.sonsanddaughters.equisite.databinding.FragmentLoginBinding
@@ -45,9 +46,7 @@ class LoginFragment : Fragment() {
     }
 
     private fun openRegisterFragment() {
-        activity?.supportFragmentManager?.beginTransaction()
-            ?.replace(R.id.container, RegisterFragment())
-            ?.commit()
+        Navigation.findNavController(requireView()).navigate(R.id.registerFragment)
     }
 
     private fun loginUser() {
@@ -72,9 +71,7 @@ class LoginFragment : Fragment() {
 
     private fun checkLoggedInState() {
         if (FirebaseUtil.auth.currentUser == null) {
-            activity?.supportFragmentManager?.beginTransaction()
-                ?.replace(R.id.container, LoginFragment())
-                ?.commit()
+            Navigation.findNavController(requireView()).navigate(R.id.loginFragment)
         } else {
             val inputMethodManager =
                 context?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
@@ -85,11 +82,10 @@ class LoginFragment : Fragment() {
                 putString("loggedInUser", FirebaseUtil.auth.currentUser!!.email.toString())
                 apply()
             }
+
             (requireActivity() as HostActivity).updateLoggedInUserTextView()
             (activity as AppCompatActivity).supportActionBar?.show()
-            activity?.supportFragmentManager?.beginTransaction()
-                ?.replace(R.id.container, HomeFragment())
-                ?.commit()
+            Navigation.findNavController(requireView()).navigate(R.id.homeFragment)
         }
     }
 }

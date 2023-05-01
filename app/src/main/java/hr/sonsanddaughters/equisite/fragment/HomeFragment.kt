@@ -27,26 +27,26 @@ class HomeFragment : Fragment() {
     }
 
     private fun setIconClickListeners() {
-        binding.btnBalance.setOnClickListener {
-            activity?.supportFragmentManager?.beginTransaction()
-                ?.replace(R.id.container, BalanceFragment())
-                ?.commit()
-        }
-        binding.btnAnalytics.setOnClickListener {
-            activity?.supportFragmentManager?.beginTransaction()
-                ?.replace(R.id.container, AnalyticsFragment())
-                ?.commit()
-        }
-        binding.btnCommunity.setOnClickListener {
-            activity?.supportFragmentManager?.beginTransaction()
-                ?.replace(R.id.container, CommunityFragment())
-                ?.commit()
-        }
-        binding.btnInvestments.setOnClickListener {
-            activity?.supportFragmentManager?.beginTransaction()
-                ?.replace(R.id.container, InvestmentsFragment())
-                ?.commit()
-        }
+//        binding.btnBalance.setOnClickListener {
+//            activity?.supportFragmentManager?.beginTransaction()
+//                ?.replace(R.id.container, BalanceFragment())
+//                ?.commit()
+//        }
+//        binding.btnAnalytics.setOnClickListener {
+//            activity?.supportFragmentManager?.beginTransaction()
+//                ?.replace(R.id.container, AnalyticsFragment())
+//                ?.commit()
+//        }
+//        binding.btnCommunity.setOnClickListener {
+//            activity?.supportFragmentManager?.beginTransaction()
+//                ?.replace(R.id.container, CommunityFragment())
+//                ?.commit()
+//        }
+//        binding.btnInvestments.setOnClickListener {
+//            activity?.supportFragmentManager?.beginTransaction()
+//                ?.replace(R.id.container, InvestmentsFragment())
+//                ?.commit()
+//        }
 
     }
 
