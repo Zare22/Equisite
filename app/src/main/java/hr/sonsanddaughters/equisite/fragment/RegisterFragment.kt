@@ -9,10 +9,12 @@ import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.Navigation
 import hr.sonsanddaughters.equisite.HostActivity
 import hr.sonsanddaughters.equisite.R
 import hr.sonsanddaughters.equisite.databinding.FragmentRegisterBinding
 import hr.sonsanddaughters.equisite.framework.registerUser
+import hr.sonsanddaughters.equisite.framework.showToast
 import hr.sonsanddaughters.equisite.model.User
 import hr.sonsanddaughters.equisite.util.FirebaseUtil
 import kotlinx.coroutines.*
@@ -39,11 +41,12 @@ class RegisterFragment : Fragment() {
             val email = binding.editTextEmail.text.toString()
             val userName = binding.editTextUsername.text.toString()
             val password = binding.editTextPassword.text.toString()
+            val balance = 0.0
 
 
             val validationList = listOf(firstName, lastName, email, userName, password)
 
-            val newUser = User(null, firstName, lastName, userName, email)
+            val newUser = User(null, firstName, lastName, userName, email, balance)
 
             if (validationList.all { it.isNotEmpty() }) {
                 CoroutineScope(Dispatchers.IO).launch {
@@ -53,10 +56,7 @@ class RegisterFragment : Fragment() {
                             checkLoggedInState()
                         }
                     } catch (e: Exception) {
-                        activity?.runOnUiThread {
-                            Toast.makeText(activity, e.message, Toast.LENGTH_LONG).show()
-                        }
-
+                        activity?.showToast(e.message.toString())
                     }
                 }
             }
@@ -65,9 +65,7 @@ class RegisterFragment : Fragment() {
 
     private fun checkLoggedInState() {
         if (FirebaseUtil.auth.currentUser == null) {
-            activity?.runOnUiThread {
-                Toast.makeText(activity, R.string.oops_something_went_wrong, Toast.LENGTH_LONG).show()
-            }
+            activity?.showToast(getString(R.string.oops_something_went_wrong))
         } else {
             val inputMethodManager =
                 context?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
@@ -84,9 +82,7 @@ class RegisterFragment : Fragment() {
             (requireActivity() as HostActivity).updateLoggedInUserTextView()
 
             (activity as AppCompatActivity).supportActionBar?.show()
-            activity?.supportFragmentManager?.beginTransaction()
-                ?.replace(R.id.fragmentsNavController, HomeFragment())
-                ?.commit()
+            Navigation.findNavController(requireView()).navigate(R.id.homeFragment)
         }
     }
 }

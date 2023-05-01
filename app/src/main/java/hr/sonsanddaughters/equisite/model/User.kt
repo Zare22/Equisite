@@ -7,6 +7,7 @@ data class User(
     @PropertyName("firstName") val firstName: String,
     @PropertyName("lastName") val lastName: String,
     @PropertyName("userName") val userName: String,
-    @PropertyName("email") val email: String
+    @PropertyName("email") val email: String,
+    @PropertyName("currentBalance") var balance: Double
     ) {
 }

@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
 import hr.sonsanddaughters.equisite.R
 import hr.sonsanddaughters.equisite.databinding.FragmentManualBinding
 import hr.sonsanddaughters.equisite.framework.replaceFragment
@@ -15,6 +16,7 @@ import hr.sonsanddaughters.equisite.model.transaction.Expense
 import hr.sonsanddaughters.equisite.model.transaction.Income
 import hr.sonsanddaughters.equisite.util.FirebaseUtil
 import java.util.Calendar
+import java.util.Date
 
 
 class ManualFragment : Fragment() {
@@ -47,7 +49,7 @@ class ManualFragment : Fragment() {
             }
         }
         binding.btnCancel.setOnClickListener {
-            activity?.replaceFragment(R.id.balanceContainer, Fragment())
+            Navigation.findNavController(requireView()).navigate(R.id.balanceFragment)
         }
         binding.btnSubmit.setOnClickListener {
             addTransactionToUser()
@@ -62,12 +64,8 @@ class ManualFragment : Fragment() {
         if (binding.editTextAmount.text.toString().isNotEmpty()) {
             transAmount = binding.editTextAmount.text.toString().toDouble()
         }
-        val year = binding.datePicker.year
-        val month = binding.datePicker.month
-        val day = binding.datePicker.dayOfMonth
-        val calendar = Calendar.getInstance()
-        calendar.set(year, month, day)
-        val date = calendar.time
+
+        val date = getDate()
         val description = binding.editTextDescription.text.toString()
         var transSubType = ""
         if (binding.spinnerTypes.selectedItem != null) {
@@ -92,7 +90,7 @@ class ManualFragment : Fragment() {
                         activity?.showToast(it.exception?.message.toString())
                     } else {
                         activity?.showToast(getString(R.string.your_transaction_successfully_flied_south))
-                        activity?.replaceFragment(R.id.balanceContainer, ManualFragment())
+                        Navigation.findNavController(requireView()).navigate(R.id.balanceFragment)
                     }
                 }
             } else {
@@ -110,7 +108,7 @@ class ManualFragment : Fragment() {
                         activity?.showToast(it.exception?.message.toString())
                     } else {
                         activity?.showToast(getString(R.string.your_transaction_successfully_flied_south))
-                        activity?.replaceFragment(R.id.balanceContainer, ManualFragment())
+                        Navigation.findNavController(requireView()).navigate(R.id.balanceFragment)
                     }
                 }
             }
@@ -119,5 +117,15 @@ class ManualFragment : Fragment() {
         }
 
 
+    }
+
+    private fun getDate(): Date {
+        val year = binding.datePicker.year
+        val month = binding.datePicker.month
+        val day = binding.datePicker.dayOfMonth
+        val calendar = Calendar.getInstance()
+        calendar.set(year, month, day)
+
+        return calendar.time
     }
 }

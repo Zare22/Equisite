@@ -6,12 +6,18 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import com.google.android.gms.tasks.Tasks
+import com.google.firebase.firestore.FirebaseFirestore
 import hr.sonsanddaughters.equisite.R
 import hr.sonsanddaughters.equisite.databinding.FragmentBalanceBinding
 import hr.sonsanddaughters.equisite.framework.replaceFragment
 import hr.sonsanddaughters.equisite.framework.showToast
 import hr.sonsanddaughters.equisite.util.FirebaseUtil
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.tasks.await
 
 class BalanceFragment : Fragment() {
 
@@ -47,6 +53,7 @@ class BalanceFragment : Fragment() {
     private fun calculateBalance() {
 
         var sum = 0.0
+
         val incomesTask = FirebaseUtil.db.collection("incomes")
             .whereEqualTo("uid", FirebaseUtil.auth.currentUser?.uid.toString())
             .get()
