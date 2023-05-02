@@ -5,9 +5,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
+import com.google.android.material.navigation.NavigationView
+import hr.sonsanddaughters.equisite.HostActivity
 import hr.sonsanddaughters.equisite.R
 import hr.sonsanddaughters.equisite.databinding.FragmentHomeBinding
+import hr.sonsanddaughters.equisite.framework.replaceFragment
 
 class HomeFragment : Fragment() {
 
@@ -35,7 +40,6 @@ class HomeFragment : Fragment() {
         binding.btnInvestments.setOnClickListener {
             Navigation.findNavController(requireView()).navigate(R.id.investmentsFragment)
         }
-
     }
 
 

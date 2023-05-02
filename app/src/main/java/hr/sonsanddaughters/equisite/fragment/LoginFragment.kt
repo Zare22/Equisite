@@ -15,6 +15,7 @@ import hr.sonsanddaughters.equisite.HostActivity
 import hr.sonsanddaughters.equisite.R
 import hr.sonsanddaughters.equisite.databinding.FragmentLoginBinding
 import hr.sonsanddaughters.equisite.framework.showToast
+import hr.sonsanddaughters.equisite.framework.updateBalance
 import hr.sonsanddaughters.equisite.util.FirebaseUtil
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -61,12 +62,16 @@ class LoginFragment : Fragment() {
                 }
             }
         }
+        else {
+            activity?.showToast("Please fill out your form correctly")
+        }
     }
 
     private fun checkLoggedInState() {
         if (FirebaseUtil.auth.currentUser == null) {
             Navigation.findNavController(requireView()).navigate(R.id.loginFragment)
         } else {
+            FirebaseUtil.db.updateBalance(FirebaseUtil.auth.currentUser!!.uid)
             val inputMethodManager =
                 context?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             inputMethodManager.hideSoftInputFromWindow(view?.windowToken, 0)

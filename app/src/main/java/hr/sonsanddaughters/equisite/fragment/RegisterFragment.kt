@@ -41,12 +41,11 @@ class RegisterFragment : Fragment() {
             val email = binding.editTextEmail.text.toString()
             val userName = binding.editTextUsername.text.toString()
             val password = binding.editTextPassword.text.toString()
-            val balance = 0.0
 
 
             val validationList = listOf(firstName, lastName, email, userName, password)
 
-            val newUser = User(null, firstName, lastName, userName, email, balance)
+            val newUser = User(null, firstName, lastName, userName, email, 0.0)
 
             if (validationList.all { it.isNotEmpty() }) {
                 CoroutineScope(Dispatchers.IO).launch {

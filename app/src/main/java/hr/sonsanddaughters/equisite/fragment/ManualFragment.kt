@@ -12,6 +12,7 @@ import hr.sonsanddaughters.equisite.R
 import hr.sonsanddaughters.equisite.databinding.FragmentManualBinding
 import hr.sonsanddaughters.equisite.framework.replaceFragment
 import hr.sonsanddaughters.equisite.framework.showToast
+import hr.sonsanddaughters.equisite.framework.updateBalance
 import hr.sonsanddaughters.equisite.model.transaction.Expense
 import hr.sonsanddaughters.equisite.model.transaction.Income
 import hr.sonsanddaughters.equisite.util.FirebaseUtil
@@ -90,7 +91,6 @@ class ManualFragment : Fragment() {
                         activity?.showToast(it.exception?.message.toString())
                     } else {
                         activity?.showToast(getString(R.string.your_transaction_successfully_flied_south))
-                        Navigation.findNavController(requireView()).navigate(R.id.balanceFragment)
                     }
                 }
             } else {
@@ -108,7 +108,6 @@ class ManualFragment : Fragment() {
                         activity?.showToast(it.exception?.message.toString())
                     } else {
                         activity?.showToast(getString(R.string.your_transaction_successfully_flied_south))
-                        Navigation.findNavController(requireView()).navigate(R.id.balanceFragment)
                     }
                 }
             }

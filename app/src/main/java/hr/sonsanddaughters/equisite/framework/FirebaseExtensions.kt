@@ -2,7 +2,9 @@ package hr.sonsanddaughters.equisite.framework
 
 import android.content.Context
 import android.widget.Toast
+import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import hr.sonsanddaughters.equisite.model.User
 import hr.sonsanddaughters.equisite.util.FirebaseUtil
 
@@ -32,4 +34,65 @@ private fun addUserToCollection(context: Context, user: User) {
                 }
             }
         }
+}
+
+fun FirebaseFirestore.updateBalance(uid: String) {
+    getIncomes(uid).addOnSuccessListener { incomes ->
+        getExpenses(uid).addOnSuccessListener { expenses ->
+            val sum = incomes - expenses
+            setUserCurrentBalance(uid, sum)
+        }
+    }
+}
+
+private fun FirebaseFirestore.setUserCurrentBalance(
+    uid: String,
+    sum: Double
+) {
+    this.collection("users")
+        .whereEqualTo("uid", uid)
+        .get()
+        .addOnSuccessListener { snapshot ->
+            if (!snapshot.isEmpty) {
+                val document = snapshot.documents[0]
+                document.reference.update("currentBalance", sum)
+            }
+        }
+}
+
+fun FirebaseFirestore.getUserBalance(uid: String): Task<Double> {
+    val userRef = collection("users").whereEqualTo("uid", uid)
+    return userRef.get().continueWith { task ->
+        val snapshot = task.result
+        if (snapshot != null && !snapshot.isEmpty) {
+            val document = snapshot.documents[0]
+            document.getDouble("currentBalance") ?: 0.0
+        } else {
+            0.0
+        }
+    }
+}
+
+fun FirebaseFirestore.getExpenses(uid: String): Task<Double> {
+    val expensesRef = collection("expenses").whereEqualTo("uid", uid)
+    return expensesRef.get().continueWith { task ->
+        val documents = task.result
+        var totalExpenses = 0.0
+        for (document in documents) {
+            totalExpenses += document.getDouble("amount") ?: 0.0
+        }
+        totalExpenses
+    }
+}
+
+fun FirebaseFirestore.getIncomes(uid: String): Task<Double> {
+    val expensesRef = collection("incomes").whereEqualTo("uid", uid)
+    return expensesRef.get().continueWith { task ->
+        val documents = task.result
+        var totalIncomes = 0.0
+        for (document in documents) {
+            totalIncomes += document.getDouble("amount") ?: 0.0
+        }
+        totalIncomes
+    }
 }

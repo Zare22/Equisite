@@ -1,6 +1,7 @@
 package hr.sonsanddaughters.equisite
 
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
 import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -30,9 +31,13 @@ class HostActivity : AppCompatActivity() {
         checkLoggedInState()
         initNavigationView()
         initFragmentNavigation()
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            Log.d("NavigationTest", "Navigating to destination: ${destination.label}")
+        }
     }
 
-    private fun initFragmentNavigation() = NavigationUI.setupWithNavController(binding.navView, navController)
+    private fun initFragmentNavigation() =
+        NavigationUI.setupWithNavController(binding.navView, navController)
 
     private fun setupActionBar() {
         val actionBar = supportActionBar
