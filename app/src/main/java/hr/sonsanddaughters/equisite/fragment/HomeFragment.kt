@@ -29,6 +29,9 @@ class HomeFragment : Fragment() {
 
     private fun setIconClickListeners() {
         binding.btnBalance.setOnClickListener {
+//            val navView = (activity as HostActivity).findViewById<NavigationView>(R.id.navView)
+//            val item = navView.menu.findItem(R.id.balanceFragment)
+
             Navigation.findNavController(requireView()).navigate(R.id.balanceFragment)
         }
         binding.btnAnalytics.setOnClickListener {
