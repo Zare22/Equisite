@@ -22,7 +22,7 @@
     <string name="register">Register</string>
     <string name="equisite_pigeons_are_working">Pigeons are working overtime to deliver the feature</string>
 
-    <string name="balance_state">Your current balance is: %s</string>
+    <string name="balance_state">Your current balance is: </string>
     <string name="no_internet_connection">No internet connection</string>
     <string name="oops_something_went_wrong">Oops something went wrong</string>
     <string name="your_transaction_successfully_flied_south">Your transaction successfully flied south</string>

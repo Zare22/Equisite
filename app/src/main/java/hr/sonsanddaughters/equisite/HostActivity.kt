@@ -1,24 +1,27 @@
 package hr.sonsanddaughters.equisite
 
 import android.os.Bundle
-import android.util.Log
 import android.view.MenuItem
 import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
-import androidx.navigation.findNavController
-import androidx.navigation.ui.NavigationUI
+import androidx.navigation.fragment.NavHostFragment
 import hr.sonsanddaughters.equisite.databinding.ActivityHostBinding
+import hr.sonsanddaughters.equisite.fragment.AnalyticsFragment
+import hr.sonsanddaughters.equisite.fragment.BalanceFragment
+import hr.sonsanddaughters.equisite.fragment.CommunityFragment
+import hr.sonsanddaughters.equisite.fragment.HomeFragment
+import hr.sonsanddaughters.equisite.fragment.InvestmentsFragment
+import hr.sonsanddaughters.equisite.fragment.LoginFragment
+import hr.sonsanddaughters.equisite.framework.replaceFragment
 import hr.sonsanddaughters.equisite.util.FirebaseUtil
 
 class HostActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityHostBinding
     private lateinit var toggle: ActionBarDrawerToggle
-
-    private val navController by lazy { findNavController(R.id.fragmentsNavController) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,14 +33,7 @@ class HostActivity : AppCompatActivity() {
         setupActionBar()
         checkLoggedInState()
         initNavigationView()
-        initFragmentNavigation()
-        navController.addOnDestinationChangedListener { _, destination, _ ->
-            Log.d("NavigationTest", "Navigating to destination: ${destination.label}")
-        }
     }
-
-    private fun initFragmentNavigation() =
-        NavigationUI.setupWithNavController(binding.navView, navController)
 
     private fun setupActionBar() {
         val actionBar = supportActionBar
@@ -48,9 +44,9 @@ class HostActivity : AppCompatActivity() {
 
     private fun checkLoggedInState() {
         if (FirebaseUtil.auth.currentUser == null) {
-            navController.navigate(R.id.loginFragment)
+            this.replaceFragment(binding.fragmentsContainer.id, LoginFragment(), false)
         } else {
-            navController.navigate(R.id.homeFragment)
+            this.replaceFragment(binding.fragmentsContainer.id, HomeFragment(), false)
 
             val sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE)
             with(sharedPreferences.edit()) {
@@ -68,13 +64,19 @@ class HostActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         binding.drawerLayout.closeDrawer(GravityCompat.START)
-        setLogoutListener()
+        setNavigationListeners()
     }
 
-    private fun setLogoutListener() {
-        val logout = binding.navView.menu.findItem(R.id.miLogout)
-        logout.setOnMenuItemClickListener {
-            showLogoutConfirmationDialog()
+    private fun setNavigationListeners() {
+        binding.navView.setNavigationItemSelectedListener {
+            when (it.itemId) {
+                R.id.miHome -> { replaceFragment(R.id.fragmentsContainer, HomeFragment(), true) }
+                R.id.miBalance -> { replaceFragment(R.id.fragmentsContainer, BalanceFragment(), false) }
+                R.id.miAnalytics -> { replaceFragment(R.id.fragmentsContainer, AnalyticsFragment(), false) }
+                R.id.miCommunity -> { replaceFragment(R.id.fragmentsContainer, CommunityFragment(), false) }
+                R.id.miInvestments -> { replaceFragment(R.id.fragmentsContainer, InvestmentsFragment(), false) }
+                R.id.miLogout -> { showLogoutConfirmationDialog() }
+            }
             binding.drawerLayout.closeDrawer(GravityCompat.START)
             true
         }
@@ -107,6 +109,7 @@ class HostActivity : AppCompatActivity() {
         val builder = AlertDialog.Builder(this)
         builder.setTitle(R.string.logout_title)
         builder.setMessage(R.string.logout_message)
+
         builder.setPositiveButton(R.string.logout_confirm_button) { _, _ ->
             FirebaseUtil.auth.signOut()
             checkLoggedInState()
@@ -118,6 +121,7 @@ class HostActivity : AppCompatActivity() {
             updateLoggedInUserTextView()
         }
         builder.setNegativeButton(R.string.logout_cancel, null)
+
         val dialog = builder.create()
         dialog.show()
     }

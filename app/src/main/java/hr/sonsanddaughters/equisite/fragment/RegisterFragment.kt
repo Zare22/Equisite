@@ -7,13 +7,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.Navigation
 import hr.sonsanddaughters.equisite.HostActivity
 import hr.sonsanddaughters.equisite.R
 import hr.sonsanddaughters.equisite.databinding.FragmentRegisterBinding
 import hr.sonsanddaughters.equisite.framework.registerUser
+import hr.sonsanddaughters.equisite.framework.replaceFragment
 import hr.sonsanddaughters.equisite.framework.showToast
 import hr.sonsanddaughters.equisite.model.User
 import hr.sonsanddaughters.equisite.util.FirebaseUtil
@@ -81,7 +81,7 @@ class RegisterFragment : Fragment() {
             (requireActivity() as HostActivity).updateLoggedInUserTextView()
 
             (activity as AppCompatActivity).supportActionBar?.show()
-            Navigation.findNavController(requireView()).navigate(R.id.homeFragment)
+            activity?.replaceFragment(R.id.fragmentsContainer, HomeFragment(), false)
         }
     }
 }

@@ -5,14 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
-import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.navigation.Navigation
 import hr.sonsanddaughters.equisite.R
 import hr.sonsanddaughters.equisite.databinding.FragmentManualBinding
 import hr.sonsanddaughters.equisite.framework.replaceFragment
 import hr.sonsanddaughters.equisite.framework.showToast
-import hr.sonsanddaughters.equisite.framework.updateBalance
 import hr.sonsanddaughters.equisite.model.transaction.Expense
 import hr.sonsanddaughters.equisite.model.transaction.Income
 import hr.sonsanddaughters.equisite.util.FirebaseUtil
@@ -50,7 +47,7 @@ class ManualFragment : Fragment() {
             }
         }
         binding.btnCancel.setOnClickListener {
-            Navigation.findNavController(requireView()).navigate(R.id.balanceFragment)
+            activity?.replaceFragment(R.id.balanceFragmentContainer, Fragment(), false)
         }
         binding.btnSubmit.setOnClickListener {
             addTransactionToUser()
@@ -91,9 +88,10 @@ class ManualFragment : Fragment() {
                         activity?.showToast(it.exception?.message.toString())
                     } else {
                         activity?.showToast(getString(R.string.your_transaction_successfully_flied_south))
+                        activity?.replaceFragment(R.id.fragmentsContainer, BalanceFragment(), false)
                     }
                 }
-            } else {
+            } else if(binding.rbExpense.isChecked) {
                 val expense = Expense(
                     transName,
                     transAmount,
@@ -108,8 +106,11 @@ class ManualFragment : Fragment() {
                         activity?.showToast(it.exception?.message.toString())
                     } else {
                         activity?.showToast(getString(R.string.your_transaction_successfully_flied_south))
+                        activity?.replaceFragment(R.id.fragmentsContainer, BalanceFragment(), false)
                     }
                 }
+            } else {
+                activity?.showToast(getString(R.string.please_fill_out_your_form))
             }
         } else {
             activity?.showToast(getString(R.string.please_fill_out_your_form))

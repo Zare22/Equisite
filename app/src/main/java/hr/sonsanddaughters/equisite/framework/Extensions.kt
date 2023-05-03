@@ -10,9 +10,6 @@ import android.widget.Toast
 import androidx.core.content.getSystemService
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
-import androidx.fragment.app.FragmentManager
-import androidx.preference.PreferenceManager
-import hr.sonsanddaughters.equisite.R
 
 inline fun <reified T : Activity> Context.startActivity() =
     startActivity(Intent(this, T::class.java).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
@@ -45,9 +42,12 @@ fun Activity.showToast(message: String) {
     }
 }
 
-fun FragmentActivity.replaceFragment(containerId: Int, fragment: Fragment) {
+fun FragmentActivity.replaceFragment(containerId: Int, fragment: Fragment, addToBackStack: Boolean) {
     supportFragmentManager.beginTransaction()
         .replace(containerId, fragment)
+        .apply {
+            if (addToBackStack) addToBackStack(null)
+        }
         .commit()
 }
 

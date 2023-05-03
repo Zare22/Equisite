@@ -1,15 +1,11 @@
 package hr.sonsanddaughters.equisite.fragment
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
-import androidx.navigation.fragment.findNavController
-import com.google.android.material.navigation.NavigationView
-import hr.sonsanddaughters.equisite.HostActivity
 import hr.sonsanddaughters.equisite.R
 import hr.sonsanddaughters.equisite.databinding.FragmentHomeBinding
 import hr.sonsanddaughters.equisite.framework.replaceFragment
@@ -29,19 +25,16 @@ class HomeFragment : Fragment() {
 
     private fun setIconClickListeners() {
         binding.btnBalance.setOnClickListener {
-//            val navView = (activity as HostActivity).findViewById<NavigationView>(R.id.navView)
-//            val item = navView.menu.findItem(R.id.balanceFragment)
-
-            Navigation.findNavController(requireView()).navigate(R.id.balanceFragment)
-        }
+            activity?.replaceFragment(R.id.fragmentsContainer, BalanceFragment(), false)
+       }
         binding.btnAnalytics.setOnClickListener {
-            Navigation.findNavController(requireView()).navigate(R.id.analyticsFragment)
+            activity?.replaceFragment(R.id.fragmentsContainer, AnalyticsFragment(), false)
         }
         binding.btnCommunity.setOnClickListener {
-            Navigation.findNavController(requireView()).navigate(R.id.communityFragment)
+            activity?.replaceFragment(R.id.fragmentsContainer, CommunityFragment(), false)
         }
         binding.btnInvestments.setOnClickListener {
-            Navigation.findNavController(requireView()).navigate(R.id.investmentsFragment)
+            activity?.replaceFragment(R.id.fragmentsContainer, InvestmentsFragment(), false)
         }
     }
 

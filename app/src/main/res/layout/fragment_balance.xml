@@ -9,16 +9,35 @@
     android:orientation="vertical"
     tools:context=".fragment.BalanceFragment">
 
-    <TextView
-        android:id="@+id/textViewYourBalance"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
         android:layout_margin="5dp"
-        android:textSize="20sp"
         android:padding="5dp"
-        android:fontFamily="@font/segoeui"
-        android:textColor="@color/equisite_primary"
-        android:textAlignment="center" />
+        android:textAlignment="center">
+
+        <TextView
+            android:id="@+id/textViewYourBalance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:fontFamily="@font/segoeui"
+            android:textColor="@color/equisite_primary"
+            android:text="@string/balance_state"/>
+
+        <TextView
+            android:id="@+id/textViewBalanceNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:layout_marginStart="@dimen/balance_number_left_margin"
+            android:fontFamily="@font/segoeui"
+            android:textColor="@color/equisite_primary"/>
+
+    </LinearLayout>
+
 
     <GridLayout
         android:layout_width="match_parent"
@@ -177,8 +196,8 @@
         </com.google.android.material.card.MaterialCardView>
     </GridLayout>
 
-    <FrameLayout
-        android:id="@+id/balanceContainer"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/balanceFragmentContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 

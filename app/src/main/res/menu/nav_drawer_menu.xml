@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/homeFragment"
+        android:id="@+id/miHome"
         android:title="@string/home"/>
     <item
-        android:id="@+id/balanceFragment"
+        android:id="@+id/miBalance"
         android:title="@string/balance" />
     <item
-        android:id="@+id/investmentsFragment"
+        android:id="@+id/miInvestments"
         android:title="@string/investments" />
     <item
-        android:id="@+id/analyticsFragment"
+        android:id="@+id/miAnalytics"
         android:title="@string/analytics" />
     <item
-        android:id="@+id/communityFragment"
+        android:id="@+id/miCommunity"
         android:title="@string/community" />
     <item
         android:id="@+id/miLogout"

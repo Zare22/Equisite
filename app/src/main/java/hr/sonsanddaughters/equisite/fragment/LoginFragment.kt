@@ -8,12 +8,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.Navigation
 import hr.sonsanddaughters.equisite.HostActivity
 import hr.sonsanddaughters.equisite.R
 import hr.sonsanddaughters.equisite.databinding.FragmentLoginBinding
+import hr.sonsanddaughters.equisite.framework.replaceFragment
 import hr.sonsanddaughters.equisite.framework.showToast
 import hr.sonsanddaughters.equisite.framework.updateBalance
 import hr.sonsanddaughters.equisite.util.FirebaseUtil
@@ -44,7 +44,7 @@ class LoginFragment : Fragment() {
     }
 
     private fun openRegisterFragment() {
-        Navigation.findNavController(requireView()).navigate(R.id.registerFragment)
+        activity?.replaceFragment(R.id.fragmentsContainer, RegisterFragment(), false)
     }
 
     private fun loginUser() {
@@ -69,7 +69,7 @@ class LoginFragment : Fragment() {
 
     private fun checkLoggedInState() {
         if (FirebaseUtil.auth.currentUser == null) {
-            Navigation.findNavController(requireView()).navigate(R.id.loginFragment)
+            activity?.replaceFragment(R.id.fragmentsContainer, LoginFragment(), false)
         } else {
             FirebaseUtil.db.updateBalance(FirebaseUtil.auth.currentUser!!.uid)
             val inputMethodManager =
@@ -84,7 +84,7 @@ class LoginFragment : Fragment() {
 
             (requireActivity() as HostActivity).updateLoggedInUserTextView()
             (activity as AppCompatActivity).supportActionBar?.show()
-            Navigation.findNavController(requireView()).navigate(R.id.homeFragment)
+            activity?.replaceFragment(R.id.fragmentsContainer, HomeFragment(), true)
         }
     }
 }

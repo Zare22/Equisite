@@ -1,10 +1,12 @@
 package hr.sonsanddaughters.equisite.framework
 
 import android.content.Context
+import android.util.Log
 import android.widget.Toast
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ListenerRegistration
 import hr.sonsanddaughters.equisite.model.User
 import hr.sonsanddaughters.equisite.util.FirebaseUtil
 
@@ -60,16 +62,21 @@ private fun FirebaseFirestore.setUserCurrentBalance(
         }
 }
 
-fun FirebaseFirestore.getUserBalance(uid: String): Task<Double> {
+fun FirebaseFirestore.getUserBalance(uid: String, listener: (Double) -> Unit, onFailure: ((Exception) -> Unit)? = null): ListenerRegistration {
     val userRef = collection("users").whereEqualTo("uid", uid)
-    return userRef.get().continueWith { task ->
-        val snapshot = task.result
-        if (snapshot != null && !snapshot.isEmpty) {
+    return userRef.addSnapshotListener { snapshot, error ->
+        if (error != null) {
+            onFailure?.invoke(error)
+        }
+
+        val balance = if (snapshot != null && !snapshot.isEmpty) {
             val document = snapshot.documents[0]
             document.getDouble("currentBalance") ?: 0.0
         } else {
             0.0
         }
+
+        listener(balance)
     }
 }
 
