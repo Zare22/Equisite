@@ -60,6 +60,16 @@
     <string name="last_name">Last name</string>
     <string name="username">Username</string>
     <string name="fly_with_us">Fly with us</string>
+    <string name="your_account_balance_has_been_updated">Your account balance has been updated</string>
+    <string name="success">Success</string>
+    <string name="dismiss">Dismiss</string>
+    <string name="error">Error</string>
+    <string name="there_was_an_error_with_your_download">There was an error with your download</string>
+    <string name="there_was_an_error_trying_to_access_your_file">There was an error trying to access your file</string>
+    <string name="your_file_was_successfully_downloaded">Your file was successfully downloaded</string>
+    <string name="download">Download</string>
+    <string name="there_was_an_error_trying_saving_your_file">There was an error trying saving your file</string>
+    <string name="permission_not_granted">Permission not granted!</string>
 
     <string-array name="incomes">
         <item>Pay</item>

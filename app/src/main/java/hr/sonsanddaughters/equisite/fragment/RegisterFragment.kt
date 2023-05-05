@@ -2,13 +2,12 @@ package hr.sonsanddaughters.equisite.fragment
 
 import android.content.Context
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.Navigation
+import androidx.fragment.app.Fragment
 import hr.sonsanddaughters.equisite.HostActivity
 import hr.sonsanddaughters.equisite.R
 import hr.sonsanddaughters.equisite.databinding.FragmentRegisterBinding
@@ -17,9 +16,11 @@ import hr.sonsanddaughters.equisite.framework.replaceFragment
 import hr.sonsanddaughters.equisite.framework.showToast
 import hr.sonsanddaughters.equisite.model.User
 import hr.sonsanddaughters.equisite.util.FirebaseUtil
-import kotlinx.coroutines.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
-import java.lang.Exception
+import kotlinx.coroutines.withContext
 
 class RegisterFragment : Fragment() {
 
@@ -54,18 +55,15 @@ class RegisterFragment : Fragment() {
                         withContext(Dispatchers.Main) {
                             checkLoggedInState()
                         }
-                    } catch (e: Exception) {
-                        activity?.showToast(e.message.toString())
-                    }
+                    } catch (e: Exception) { activity?.showToast(e.message.toString()) }
                 }
             }
         }
     }
 
     private fun checkLoggedInState() {
-        if (FirebaseUtil.auth.currentUser == null) {
-            activity?.showToast(getString(R.string.oops_something_went_wrong))
-        } else {
+        if (FirebaseUtil.auth.currentUser == null) { activity?.showToast(getString(R.string.oops_something_went_wrong)) }
+        else {
             val inputMethodManager =
                 context?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             inputMethodManager.hideSoftInputFromWindow(view?.windowToken, 0)

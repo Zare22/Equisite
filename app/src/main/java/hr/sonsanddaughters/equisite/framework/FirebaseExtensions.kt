@@ -1,7 +1,6 @@
 package hr.sonsanddaughters.equisite.framework
 
 import android.content.Context
-import android.util.Log
 import android.widget.Toast
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
@@ -13,9 +12,8 @@ import hr.sonsanddaughters.equisite.util.FirebaseUtil
 
 fun FirebaseAuth.registerUser(context: Context, user: User, password: String) =
     createUserWithEmailAndPassword(user.email, password).addOnCompleteListener {
-        if (!it.isSuccessful) {
-            Toast.makeText(context, it.exception?.message, Toast.LENGTH_LONG).show()
-        } else {
+        if (!it.isSuccessful) { Toast.makeText(context, it.exception?.message, Toast.LENGTH_LONG).show() }
+        else {
             user.uid = it.result.user?.uid.toString()
             addUserToCollection(context, user)
         }
@@ -24,15 +22,11 @@ fun FirebaseAuth.registerUser(context: Context, user: User, password: String) =
 private fun addUserToCollection(context: Context, user: User) {
     FirebaseUtil.db.collection("users").whereEqualTo("email", user.email).get()
         .addOnCompleteListener { querySnapshotTask ->
-            if (!querySnapshotTask.result.isEmpty) {
-                Toast.makeText(context, "User already exists", Toast.LENGTH_LONG).show()
-            } else {
+            if (!querySnapshotTask.result.isEmpty) { Toast.makeText(context, "User already exists", Toast.LENGTH_LONG).show() }
+            else {
                 FirebaseUtil.db.collection("users").add(user).addOnCompleteListener {
-                    if (it.isSuccessful) {
-                        Toast.makeText(context, "User registered", Toast.LENGTH_LONG).show()
-                    } else {
-                        Toast.makeText(context, it.exception?.message, Toast.LENGTH_LONG).show()
-                    }
+                    if (it.isSuccessful) { Toast.makeText(context, "User registered", Toast.LENGTH_LONG).show() }
+                    else { Toast.makeText(context, it.exception?.message, Toast.LENGTH_LONG).show() }
                 }
             }
         }
@@ -47,10 +41,7 @@ fun FirebaseFirestore.updateBalance(uid: String) {
     }
 }
 
-private fun FirebaseFirestore.setUserCurrentBalance(
-    uid: String,
-    sum: Double
-) {
+private fun FirebaseFirestore.setUserCurrentBalance(uid: String, sum: Double) {
     this.collection("users")
         .whereEqualTo("uid", uid)
         .get()
@@ -65,16 +56,11 @@ private fun FirebaseFirestore.setUserCurrentBalance(
 fun FirebaseFirestore.getUserBalance(uid: String, listener: (Double) -> Unit, onFailure: ((Exception) -> Unit)? = null): ListenerRegistration {
     val userRef = collection("users").whereEqualTo("uid", uid)
     return userRef.addSnapshotListener { snapshot, error ->
-        if (error != null) {
-            onFailure?.invoke(error)
-        }
-
+        if (error != null) { onFailure?.invoke(error) }
         val balance = if (snapshot != null && !snapshot.isEmpty) {
             val document = snapshot.documents[0]
             document.getDouble("currentBalance") ?: 0.0
-        } else {
-            0.0
-        }
+        } else { 0.0 }
 
         listener(balance)
     }

@@ -26,6 +26,11 @@ class ManualFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentManualBinding.inflate(inflater, container, false)
+        setListeners()
+        return binding.root
+    }
+
+    private fun setListeners() {
         binding.rbGroup.setOnCheckedChangeListener { radioGroup, _ ->
             val checkedRb = radioGroup.checkedRadioButtonId
             if (checkedRb == binding.rbIncome.id) {
@@ -46,29 +51,19 @@ class ManualFragment : Fragment() {
                 binding.spinnerTypes.adapter = adapter
             }
         }
-        binding.btnCancel.setOnClickListener {
-            activity?.replaceFragment(R.id.balanceFragmentContainer, Fragment(), false)
-        }
-        binding.btnSubmit.setOnClickListener {
-            addTransactionToUser()
-        }
-
-        return binding.root
+        binding.btnCancel.setOnClickListener { activity?.replaceFragment(R.id.balanceFragmentContainer, Fragment(), false) }
+        binding.btnSubmit.setOnClickListener { addTransactionToUser() }
     }
 
     private fun addTransactionToUser() {
         val transName = binding.editTextTransactionName.text.toString()
         var transAmount = 0.0
-        if (binding.editTextAmount.text.toString().isNotEmpty()) {
-            transAmount = binding.editTextAmount.text.toString().toDouble()
-        }
+        if (binding.editTextAmount.text.toString().isNotEmpty()) { transAmount = binding.editTextAmount.text.toString().toDouble() }
 
         val date = getDate()
         val description = binding.editTextDescription.text.toString()
         var transSubType = ""
-        if (binding.spinnerTypes.selectedItem != null) {
-            transSubType = binding.spinnerTypes.selectedItem.toString()
-        }
+        if (binding.spinnerTypes.selectedItem != null) { transSubType = binding.spinnerTypes.selectedItem.toString() }
 
         val strings = listOf(transName, description, transSubType)
 
@@ -84,9 +79,8 @@ class ManualFragment : Fragment() {
                 )
 
                 FirebaseUtil.db.collection("incomes").add(income).addOnCompleteListener {
-                    if (!it.isSuccessful) {
-                        activity?.showToast(it.exception?.message.toString())
-                    } else {
+                    if (!it.isSuccessful) { activity?.showToast(it.exception?.message.toString()) }
+                    else {
                         activity?.showToast(getString(R.string.your_transaction_successfully_flied_south))
                         activity?.replaceFragment(R.id.fragmentsContainer, BalanceFragment(), false)
                     }
@@ -102,19 +96,15 @@ class ManualFragment : Fragment() {
                 )
 
                 FirebaseUtil.db.collection("expenses").add(expense).addOnCompleteListener {
-                    if (!it.isSuccessful) {
-                        activity?.showToast(it.exception?.message.toString())
-                    } else {
+                    if (!it.isSuccessful) { activity?.showToast(it.exception?.message.toString()) }
+                    else {
                         activity?.showToast(getString(R.string.your_transaction_successfully_flied_south))
                         activity?.replaceFragment(R.id.fragmentsContainer, BalanceFragment(), false)
                     }
                 }
-            } else {
-                activity?.showToast(getString(R.string.please_fill_out_your_form))
-            }
-        } else {
-            activity?.showToast(getString(R.string.please_fill_out_your_form))
-        }
+            } else activity?.showToast(getString(R.string.please_fill_out_your_form))
+
+        } else activity?.showToast(getString(R.string.please_fill_out_your_form))
 
 
     }

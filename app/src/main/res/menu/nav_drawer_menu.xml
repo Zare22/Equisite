@@ -16,6 +16,9 @@
         android:id="@+id/miCommunity"
         android:title="@string/community" />
     <item
+        android:id="@+id/miDownload"
+        android:title="@string/download"/>
+    <item
         android:id="@+id/miLogout"
         android:title="@string/logout" />
 </menu>

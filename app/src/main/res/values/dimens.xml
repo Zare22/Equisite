@@ -10,4 +10,5 @@
     <dimen name="splashCompanyMarginTop">1dp</dimen>
     <dimen name="splashCompanyTextSize">25sp</dimen>
     <dimen name="balance_number_left_margin">10dp</dimen>
+    <dimen name="snackbar_bottom_margin">50dp</dimen>
 </resources>

@@ -1,16 +1,14 @@
 package hr.sonsanddaughters.equisite
 
-import android.os.Build
 import android.os.Bundle
 import android.view.View
-import android.view.WindowInsetsController
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.Toast
-import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
-import androidx.core.view.*
+import androidx.core.view.children
+import androidx.core.view.forEach
 import hr.sonsanddaughters.equisite.constants.Constants
 import hr.sonsanddaughters.equisite.databinding.ActivityStartScreenBinding
 import hr.sonsanddaughters.equisite.framework.callDelayed

@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.Navigation
 import hr.sonsanddaughters.equisite.R
 import hr.sonsanddaughters.equisite.databinding.FragmentHomeBinding
 import hr.sonsanddaughters.equisite.framework.replaceFragment
@@ -24,18 +23,10 @@ class HomeFragment : Fragment() {
     }
 
     private fun setIconClickListeners() {
-        binding.btnBalance.setOnClickListener {
-            activity?.replaceFragment(R.id.fragmentsContainer, BalanceFragment(), false)
-       }
-        binding.btnAnalytics.setOnClickListener {
-            activity?.replaceFragment(R.id.fragmentsContainer, AnalyticsFragment(), false)
-        }
-        binding.btnCommunity.setOnClickListener {
-            activity?.replaceFragment(R.id.fragmentsContainer, CommunityFragment(), false)
-        }
-        binding.btnInvestments.setOnClickListener {
-            activity?.replaceFragment(R.id.fragmentsContainer, InvestmentsFragment(), false)
-        }
+        binding.btnBalance.setOnClickListener { activity?.replaceFragment(R.id.fragmentsContainer, BalanceFragment(), false) }
+        binding.btnAnalytics.setOnClickListener { activity?.replaceFragment(R.id.fragmentsContainer, AnalyticsFragment(), false) }
+        binding.btnCommunity.setOnClickListener { activity?.replaceFragment(R.id.fragmentsContainer, CommunityFragment(), false) }
+        binding.btnInvestments.setOnClickListener { activity?.replaceFragment(R.id.fragmentsContainer, InvestmentsFragment(), false) }
     }
 
 
