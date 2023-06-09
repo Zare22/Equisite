@@ -172,7 +172,6 @@ class HostActivity : AppCompatActivity() {
         } else {
             userHeader.setText(R.string.not_logged_in_message)
         }
-
     }
 
     private fun showLogoutConfirmationDialog() {

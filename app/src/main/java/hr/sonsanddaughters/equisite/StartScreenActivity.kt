@@ -27,7 +27,6 @@ class StartScreenActivity : AppCompatActivity() {
         setViewsVisibility(View.INVISIBLE)
         startAnimation()
         redirectToHost()
-        
     }
 
     private fun setViewsVisibility(visibilityValue: Int) = binding.myLinearLayout.forEach { view -> view.visibility = visibilityValue }

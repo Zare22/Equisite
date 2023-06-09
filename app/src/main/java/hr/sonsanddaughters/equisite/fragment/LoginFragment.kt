@@ -63,7 +63,6 @@ class LoginFragment : Fragment() {
     private fun checkLoggedInState() {
         if (FirebaseUtil.auth.currentUser == null) { activity?.replaceFragment(R.id.fragmentsContainer, LoginFragment(), false) }
         else {
-            FirebaseUtil.db.updateBalance(FirebaseUtil.auth.currentUser!!.uid)
             val inputMethodManager =
                 context?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             inputMethodManager.hideSoftInputFromWindow(view?.windowToken, 0)
